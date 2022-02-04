@@ -1,0 +1,92 @@
+\chapter{Вариант индивидуального задания}
+\addcontentsline{toc}{chapter}{Вариант индивидуального задания}
+Вариант индивидуального задания - 16.
+
+На листинге \ref{lst:unoptimized} представлен программный код неоптимизированного цикла.
+
+\captionsetup{singlelinecheck = false, justification=raggedright}
+\begin{lstlisting}[label=lst:unoptimized,caption=Программный код неоптимизированного цикла]
+extern "C" {
+	void var016(int* c, const int* a, const int* b, const int len) {
+		int minB = a[len-1];
+		for (int i = len-1; i >=0 ; i--) {
+			if (minB > b[i]) minB = b[i];
+		}
+		for (int i = 0; i < len; i++) {
+			if (a[i] < minB) {
+				c[i] = minB;
+			} else {
+				c[i] = a[i];
+			}
+		}
+	}
+}
+\end{lstlisting}
+
+На листинге \ref{lst:conveyor} представлен программный код конвейерной организации цикла.
+
+\captionsetup{singlelinecheck = false, justification=raggedright}
+\begin{lstlisting}[label=lst:conveyor,caption=Программный код конвейерной организации цикла]
+extern "C" {
+	void var016_pipelined(int* c, const int* a, const int* b, const int len) {
+		int minB = a[len-1];
+		#pragma HLS PIPELINE
+		for (int i = len-1; i >=0 ; i--) {
+			if (minB > b[i]) minB = b[i];
+		}
+		for (int i = 0; i < len; i++) {
+			if (a[i] < minB) {
+				c[i] = minB;
+			} else {
+				c[i] = a[i];
+			}
+		}
+	}
+}
+\end{lstlisting}
+
+На листинге \ref{lst:unrolled} представлен программный код частично развернутого цикла.
+\captionsetup{singlelinecheck = false, justification=raggedright}
+\begin{lstlisting}[label=lst:unrolled,caption=Программный код частично развернутного цикла]
+extern "C" {
+	void var016_unrolled(int* c, const int* a, const int* b, const int len) {
+		
+		int minB = a[len-1];
+		for (int i = len-1; i >=0 ; i--) {
+			#pragma HLS UNROLL
+			if (minB > b[i]) minB = b[i];
+		}
+		for (int i = 0; i < len; i++) {
+			if (a[i] < minB) {
+				c[i] = minB;
+			} else {
+				c[i] = a[i];
+			}
+		}
+	}
+}
+\end{lstlisting}
+
+\newpage
+На листинге \ref{lst:pipe_unrolled} представлен программный код конвейерного и частично развернутого цикла.
+\captionsetup{singlelinecheck = false, justification=raggedright}
+\begin{lstlisting}[label=lst:pipe_unrolled,caption=Программный код конвейерного и частично развернутого цикла]
+extern "C" {
+	void var016_pipe_unroll(int* c, const int* a, const int* b, const int len) {
+		int minB = a[len-1];
+		#pragma HLS PIPELINE
+		for (int i = len-1; i >=0 ; i--) {
+			#pragma HLS UNROLL factor=2
+			if (minB > b[i]) minB = b[i];
+		}
+		for (int i = 0; i < len; i++) {
+			#pragma HLS UNROLL factor=2
+			if (a[i] < minB) {
+				c[i] = minB;
+			} else {
+				c[i] = a[i];
+			}
+		}
+	}
+}
+\end{lstlisting}
