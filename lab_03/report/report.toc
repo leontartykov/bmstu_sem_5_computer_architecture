@@ -1,0 +1,18 @@
+\providecommand \autonum@processReference [2]{}
+\babel@toc {russian}{}
+\contentsline {chapter}{Цель работы}{2}{}%
+\contentsline {chapter}{Основные теоретические сведения}{3}{}%
+\contentsline {chapter}{Эксперимент №1: Исследования расслоения динамической памяти}{4}{}%
+\contentsline {chapter}{Эксперимент №2: Сравнение эффективности ссылочных и векторных структур}{10}{}%
+\contentsline {chapter}{Эксперимент №3: Исследование эффективности программной предвыборки}{12}{}%
+\contentsline {chapter}{Эксперимент №4: Исследование способов эффективного чтения оперативной памяти}{15}{}%
+\contentsline {chapter}{Эксперимент №5: Исследование конфликтов в кэш-памяти}{18}{}%
+\contentsline {chapter}{Эксперимент №6: Сравнение алгоритмов сортировки}{21}{}%
+\contentsline {subsubsection}{\textbf {Radix Sort}}{21}{}%
+\contentsline {chapter}{Контрольные вопросы}{24}{}%
+\contentsline {subsubsection}{\textbf {1. Назовите причины расслоения оперативной памяти.}}{24}{}%
+\contentsline {subsubsection}{\textbf {2. Как в современных процессорах реализована аппаратная предвыборка.}}{24}{}%
+\contentsline {subsubsection}{\textbf {3. Какая информация хранится в TLB.}}{25}{}%
+\contentsline {subsubsection}{\textbf {4. Какой тип ассоциативной памяти используется в кэш-памяти второго уровня современных ЭВМ и почему.}}{25}{}%
+\contentsline {subsubsection}{\textbf {5. Приведите пример программной предвыборки.}}{26}{}%
+\contentsline {chapter}{Заключение}{27}{}%
