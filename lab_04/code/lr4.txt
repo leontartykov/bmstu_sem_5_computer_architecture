@@ -1,0 +1,3 @@
+Путь к vivado: /iu_home/iu7136/workspace/Alveo_lab1_kernels/src/vitis_rtl_kernel/rtl_kernel_wizard_0 
+
+package_xo -xo_path /iu_home/iu7136/workspace/
